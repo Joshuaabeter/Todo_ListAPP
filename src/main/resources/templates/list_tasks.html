@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewpoint" content="width=device-width, initial-scale=1.0"/>
+<title>Tasks</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+
+<h2 align="center" padding="8px">Your Tasks</h2>
+
+<body>
+<div class="container my-2">
+<div class="card">
+<div class="card-body">
+
+<div th:switch="${taskList}"  class="container my-4">
+
+<p class="my-5">
+
+<a href="/new_task" class="btn btn-primary">Add Task</a>
+    <form th:action="@{/search_tasks}" method="get">
+        <label for="searchQuery">Search:</label>
+        <input type="text" id="searchQuery" name="taskName" th:value="${query}" placeholder="Enter task name">
+        <button type="submit">Search</button>
+    </form>
+
+</p>
+
+<div class="col-md-10">
+
+<h2 th:case="null">No Task Found</h2>
+<div th:case="*">
+
+<table class="table table-striped table-responsive-md">
+
+<thead>
+<tr>
+
+<th>Task ID</th>
+<th>Task Name</th>
+<th>Task Description</th>
+ <th>Start Date</th>
+    <th>Due Date</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr th:each="task : ${taskList}">
+
+<td th:text="${task.taskId}"></td>
+<td th:text="${task.TaskName}"></td>
+<td th:text="${task.taskDescription}"></td>
+    <td th:text="${task.taskStartDate}"></td>
+    <td th:text="${task.taskDueDate}"></td>
+
+<td>
+
+    <a th:href="@{update_task/{tid} (tid=${task.taskId})}" class="btn btn-primary">Edit</a>
+</td>
+
+<td>
+    <a th:href="@{delete_task/{tid} (tid=${task.taskId})}" class="btn btn-danger">Delete</a>
+</td>
+
+</tr>
+
+</tbody>
+
+
+
+
+
+</table>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</body>
+</html>
