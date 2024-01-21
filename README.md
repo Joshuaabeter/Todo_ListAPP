@@ -1,4 +1,4 @@
-This is a Todo webapp task management project built with Spring Boot. I used Spring Data JPA(hibernate) as an ORM to interact with the MYSQL database and designed front-end templates using thymeleaf and styled them using Bootstrap and Css
+This is a Todo web app- task management project built with Spring Boot. I used Spring Data JPA(hibernate) as an ORM to interact with the MYSQL database and designed front-end templates using thymeleaf and styled them using Bootstrap and Css
 
 Tech stack:
 
@@ -16,7 +16,8 @@ Bootstrap
 
 
 Todo Web app Features:
-                                            Users can view their tasks
+
+                                               Users can view their tasks
 <img width="773" alt="task 1" src="https://github.com/Joshuaabeter/Todo_ListAPP/assets/117391336/ef2f2a8e-492c-4327-9e52-bea6a2802177">
 
 
